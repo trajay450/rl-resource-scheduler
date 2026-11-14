@@ -1,0 +1,73 @@
+{
+  "config": {
+    "server_capacities": [
+      3,
+      5,
+      8
+    ],
+    "job_sizes": [
+      1,
+      2,
+      3
+    ],
+    "n_training_episodes": 900,
+    "steps_per_episode": 200,
+    "eval_steps_per_run": 2000,
+    "eval_seeds": 10
+  },
+  "policy_comparison": {
+    "random": {
+      "mean_total_reward": 13028.7,
+      "std_total_reward": 332.22975483842504
+    },
+    "round_robin": {
+      "mean_total_reward": 12483.8,
+      "std_total_reward": 223.59910554382816
+    },
+    "greedy_most_capacity": {
+      "mean_total_reward": 11182.4,
+      "std_total_reward": 180.22275106101338
+    },
+    "q_learning": {
+      "mean_total_reward": 16027.9,
+      "std_total_reward": 227.1578526047471,
+      "improvement_over_best_baseline_pct": 23.01994826805436
+    }
+  },
+  "placement_distribution": {
+    "greedy_most_capacity": {
+      "0": {
+        "3": 25,
+        "2": 152,
+        "1": 245
+      },
+      "1": {
+        "2": 150,
+        "3": 31,
+        "1": 214
+      },
+      "2": {
+        "1": 190,
+        "2": 130,
+        "3": 45
+      }
+    },
+    "q_learning": {
+      "0": {
+        "2": 70,
+        "1": 166,
+        "3": 80
+      },
+      "1": {
+        "2": 48,
+        "3": 126,
+        "1": 123
+      },
+      "2": {
+        "3": 89,
+        "1": 197,
+        "2": 60
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<svg width="680" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+<title>Tabular Q-learning scheduling loop</title>
+<desc>A job arrives with a size. The agent observes the state (free capacity on each server plus job size) and chooses to assign the job to a server or reject it. The environment returns a reward and updates server capacities, including stochastic regeneration as jobs complete, and the Q-table is updated via the Bellman equation.</desc>
+<rect width="680" height="420" fill="#ffffff"/>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#73726c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<g>
+<rect x="40" y="40" width="200" height="56" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+<text x="140" y="60" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#2C2C2A">Job arrives</text>
+<text x="140" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">Random size: small/medium/large</text>
+</g>
+
+<line x1="240" y1="68" x2="278" y2="68" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="280" y="40" width="200" height="56" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+<text x="380" y="60" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#042C53">Q-learning agent</text>
+<text x="380" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0C447C">State = free capacity + job size</text>
+</g>
+
+<line x1="480" y1="68" x2="518" y2="68" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="520" y="40" width="120" height="56" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+<text x="580" y="60" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#412402">Action</text>
+<text x="580" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#633806">Server 0-2 or reject</text>
+</g>
+
+<line x1="580" y1="96" x2="580" y2="134" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="400" y="136" width="280" height="56" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<text x="540" y="156" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#4A1B0C">Environment</text>
+<text x="540" y="174" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#712B13">Updates capacity, returns reward</text>
+</g>
+
+<path d="M400,164 L140,164 L140,134" fill="none" stroke="#73726c" stroke-width="1.2" marker-end="url(#arrow)"/>
+<text x="250" y="186" text-anchor="middle" font-size="12" fill="#5F5E5A">reward + next state</text>
+
+<line x1="380" y1="96" x2="380" y2="236" stroke="#73726c" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<text x="400" y="220" font-size="11" fill="#5F5E5A">Bellman update</text>
+
+<g>
+<rect x="220" y="238" width="320" height="56" rx="8" fill="#EAF3DE" stroke="#639922" stroke-width="1"/>
+<text x="380" y="258" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#173404">Q-table</text>
+<text x="380" y="276" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#27500A">648 states × 4 actions, updated in place</text>
+</g>
+
+<text x="340" y="340" text-anchor="middle" font-size="12" fill="#5F5E5A">Benchmarked against random, round-robin and greedy-most-capacity-free baselines</text>
+</svg>
